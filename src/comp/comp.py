@@ -4,6 +4,7 @@ import math
 
 # removed ", ".join([line comprehension]) for tests to pass
 
+
 class Human:
     def __init__(self, name, age):
         self.name = name
@@ -63,15 +64,16 @@ print(e)
 # age, for example ("David", 31), for everyone between the ages of 27 and 32,
 # inclusive.
 print("Names and ages between 27 and 32:")
-f = [(human.name, human.age) for human in humans if human.age > 26 and human.age < 33]
+f = [(human.name, human.age)
+     for human in humans if human.age > 26 and human.age < 33]
 print(f)
 
 # Write a list comprehension that creates a list of new Humans like the old
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = [str(f'{human.name.upper()}, {human.age + 5}') for human in humans]
-#g = [(human.name.upper(), human.age + 5) for human in humans]
+#g = [str(f'{human.name.upper()}, {human.age + 5}') for human in humans]
+g = [Human(human.name.upper(), human.age + 5) for human in humans]
 print(g)
 # print(humans)
 
